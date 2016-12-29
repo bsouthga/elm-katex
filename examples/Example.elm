@@ -48,8 +48,15 @@ view model =
         ]
         [ h1 [] [ text "Render LaTeX in Elm using KaTeX" ]
         , div []
-            [ a [ href "https://github.com/bsouthga/elm-katex" ]
-                [ text "https://github.com/bsouthga/elm-katex"
+            [ a [ href "https://github.com/bsouthga/elm-katex/" ]
+                [ text "elm-katex" ]
+            , a
+                [ style
+                    [ ( "margin-left", "10px" )
+                    ]
+                , href "https://github.com/bsouthga/elm-katex/blob/master/examples/Example.elm"
+                ]
+                [ text "(Example Source)"
                 ]
             ]
         , hr [] []
