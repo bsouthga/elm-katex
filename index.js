@@ -8397,14 +8397,35 @@ var _bsouthga$elm_katex$Main$update = F2(
 var _bsouthga$elm_katex$Main$Model = function (a) {
 	return {expression: a};
 };
-var _bsouthga$elm_katex$Main$model = _bsouthga$elm_katex$Main$Model('');
+var _bsouthga$elm_katex$Main$model = _bsouthga$elm_katex$Main$Model('\\pi');
 var _bsouthga$elm_katex$Main$Change = function (a) {
 	return {ctor: 'Change', _0: a};
 };
 var _bsouthga$elm_katex$Main$view = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
-		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'max-width', _1: '600px'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'margin', _1: '0 auto'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'margin-top', _1: '50px'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'font-family', _1: 'sans-serif'},
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		},
 		{
 			ctor: '::',
 			_0: A2(
@@ -8412,69 +8433,133 @@ var _bsouthga$elm_katex$Main$view = function (model) {
 				{ctor: '[]'},
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html$text('Enter LaTeX'),
+					_0: _elm_lang$html$Html$text('Render LaTeX in Elm using KaTeX'),
 					_1: {ctor: '[]'}
 				}),
 			_1: {
 				ctor: '::',
 				_0: A2(
-					_elm_lang$html$Html$input,
+					_elm_lang$html$Html$div,
+					{ctor: '[]'},
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$type_('text'),
-						_1: {
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$placeholder('Expression'),
-							_1: {
-								ctor: '::',
-								_0: _elm_lang$html$Html_Events$onInput(_bsouthga$elm_katex$Main$Change),
-								_1: {ctor: '[]'}
-							}
-						}
-					},
-					{ctor: '[]'}),
-				_1: {
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$h1,
-						{ctor: '[]'},
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html$text('Rendered Element'),
-							_1: {ctor: '[]'}
-						}),
-					_1: {
-						ctor: '::',
 						_0: A2(
-							_elm_lang$html$Html$div,
-							{ctor: '[]'},
+							_elm_lang$html$Html$a,
 							{
 								ctor: '::',
-								_0: _bsouthga$elm_katex$KaTeX$render(model.expression),
+								_0: _elm_lang$html$Html_Attributes$href('https://github.com/bsouthga/elm-katex/'),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('elm-katex'),
 								_1: {ctor: '[]'}
 							}),
 						_1: {
 							ctor: '::',
 							_0: A2(
-								_elm_lang$html$Html$h1,
-								{ctor: '[]'},
+								_elm_lang$html$Html$a,
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html$text('Raw String'),
+									_0: _elm_lang$html$Html_Attributes$style(
+										{
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'margin-left', _1: '10px'},
+											_1: {ctor: '[]'}
+										}),
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$href('https://github.com/bsouthga/elm-katex/blob/master/examples/Example.elm'),
+										_1: {ctor: '[]'}
+									}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('(Example Source)'),
 									_1: {ctor: '[]'}
 								}),
+							_1: {ctor: '[]'}
+						}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$hr,
+						{ctor: '[]'},
+						{ctor: '[]'}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$h2,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('Input expression'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$input,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$type_('text'),
+									_1: {
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$placeholder('Expression'),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Events$onInput(_bsouthga$elm_katex$Main$Change),
+											_1: {ctor: '[]'}
+										}
+									}
+								},
+								{ctor: '[]'}),
 							_1: {
 								ctor: '::',
 								_0: A2(
-									_elm_lang$html$Html$div,
+									_elm_lang$html$Html$h2,
 									{ctor: '[]'},
 									{
 										ctor: '::',
-										_0: _elm_lang$html$Html$text(
-											_bsouthga$elm_katex$KaTeX$renderToString(model.expression)),
+										_0: _elm_lang$html$Html$text('Rendered Element'),
 										_1: {ctor: '[]'}
 									}),
-								_1: {ctor: '[]'}
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$div,
+										{ctor: '[]'},
+										{
+											ctor: '::',
+											_0: _bsouthga$elm_katex$KaTeX$render(model.expression),
+											_1: {ctor: '[]'}
+										}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$h2,
+											{ctor: '[]'},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('Raw String'),
+												_1: {ctor: '[]'}
+											}),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$div,
+												{ctor: '[]'},
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html$text(
+														_bsouthga$elm_katex$KaTeX$renderToString(model.expression)),
+													_1: {ctor: '[]'}
+												}),
+											_1: {ctor: '[]'}
+										}
+									}
+								}
 							}
 						}
 					}
