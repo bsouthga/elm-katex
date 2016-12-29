@@ -26,7 +26,7 @@ type Msg
 
 model : Model
 model =
-    Model ""
+    Model "\\pi"
 
 
 update : Msg -> Model -> Model
@@ -38,14 +38,28 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ h1 [] [ text "Enter LaTeX" ]
+    div
+        [ style
+            [ ( "max-width", "600px" )
+            , ( "margin", "0 auto" )
+            , ( "margin-top", "50px" )
+            , ( "font-family", "sans-serif" )
+            ]
+        ]
+        [ h1 [] [ text "Render LaTeX in Elm using KaTeX" ]
+        , div []
+            [ a [ href "https://github.com/bsouthga/elm-katex" ]
+                [ text "https://github.com/bsouthga/elm-katex"
+                ]
+            ]
+        , hr [] []
+        , h2 [] [ text "Input expression" ]
         , input [ type_ "text", placeholder "Expression", onInput Change ] []
-        , h1 [] [ text "Rendered Element" ]
+        , h2 [] [ text "Rendered Element" ]
         , div []
             [ (KaTeX.render model.expression)
             ]
-        , h1 [] [ text "Raw String" ]
+        , h2 [] [ text "Raw String" ]
         , div []
             [ text (KaTeX.renderToString model.expression)
             ]
