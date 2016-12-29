@@ -1,6 +1,6 @@
 module Main exposing (main)
 
-import KaTeX
+import KaTeX exposing (render, renderToString, renderWithOptions, defaultOptions)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onInput)
@@ -64,10 +64,14 @@ view model =
         , input [ type_ "text", placeholder "Expression", onInput Change ] []
         , h2 [] [ text "Rendered Element" ]
         , div []
-            [ (KaTeX.render model.expression)
+            [ (render model.expression)
+            ]
+        , h2 [] [ text "Display Mode" ]
+        , div []
+            [ (renderWithOptions { defaultOptions | displayMode = True } model.expression)
             ]
         , h2 [] [ text "Raw String" ]
         , div []
-            [ text (KaTeX.renderToString model.expression)
+            [ text (renderToString model.expression)
             ]
         ]
