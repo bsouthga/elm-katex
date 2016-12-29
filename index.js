@@ -8542,7 +8542,7 @@ var _bsouthga$elm_katex$Main$view = function (model) {
 											{ctor: '[]'},
 											{
 												ctor: '::',
-												_0: _elm_lang$html$Html$text('Raw String'),
+												_0: _elm_lang$html$Html$text('Display Mode'),
 												_1: {ctor: '[]'}
 											}),
 										_1: {
@@ -8552,11 +8552,38 @@ var _bsouthga$elm_katex$Main$view = function (model) {
 												{ctor: '[]'},
 												{
 													ctor: '::',
-													_0: _elm_lang$html$Html$text(
-														_bsouthga$elm_katex$KaTeX$renderToString(model.expression)),
+													_0: A2(
+														_bsouthga$elm_katex$KaTeX$renderWithOptions,
+														_elm_lang$core$Native_Utils.update(
+															_bsouthga$elm_katex$KaTeX$defaultOptions,
+															{displayMode: true}),
+														model.expression),
 													_1: {ctor: '[]'}
 												}),
-											_1: {ctor: '[]'}
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$h2,
+													{ctor: '[]'},
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html$text('Raw String'),
+														_1: {ctor: '[]'}
+													}),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_elm_lang$html$Html$div,
+														{ctor: '[]'},
+														{
+															ctor: '::',
+															_0: _elm_lang$html$Html$text(
+																_bsouthga$elm_katex$KaTeX$renderToString(model.expression)),
+															_1: {ctor: '[]'}
+														}),
+													_1: {ctor: '[]'}
+												}
+											}
 										}
 									}
 								}
