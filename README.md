@@ -12,6 +12,7 @@ integral : Html msg
 integral =
     KaTeX.render """
   \int_0^\infty x\,\mathrm{d}x.
+  """
 ```
 
 
