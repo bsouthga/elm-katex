@@ -4,6 +4,8 @@ This package provides a light wrapper over the KaTeX library by Khan Academy.
 
 [KaTeX]: https://github.com/Khan/KaTeX
 
+[Example usage](https://bsouthga.github.io/elm-katex/)
+
 
 ## Basic Usage
 
