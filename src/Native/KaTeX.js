@@ -16,11 +16,14 @@ var implementation = {
 
 function renderElement(options, expression) {
   options.throwOnError = false;
+
   var model = {
     options: options,
     expression: expression
   };
+
   var factList = {ctor: '[]'};
+
   return _elm_lang$virtual_dom$Native_VirtualDom
     .custom(factList, model, implementation);
 }
@@ -38,8 +41,8 @@ function tryRenderKatex(expression, element, options) {
 
 function _render(model) {
   var div = document.createElement('div');
-  tryRenderKatex(model.expression, div, model.options);
-  return div;
+
+  return tryRenderKatex(model.expression, div, model.options);
 }
 
 
@@ -59,13 +62,14 @@ function diff(a, b) {
 function applyPatch(domNode, data) {
   var options = data.options;
   var expression = data.expression;
+
   options.throwOnError = false;
-  tryRenderKatex(
-  expression,
-  domNode,
-  options
+
+  return tryRenderKatex(
+    expression,
+    domNode,
+    options
   );
-  return domNode;
 }
 
 
